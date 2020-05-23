@@ -1,0 +1,19 @@
+[freeswitch]
+name=FreeSWITCH Packages for Enterprise Linux $releasever - $basearch
+baseurl=http://it.ruanli.net:20000/fs/repo/yum/centos-release/7/x86_64
+enabled=1
+gpgcheck=0
+
+[freeswitch-debuginfo]
+# Included in freeswitch repo
+name=FreeSWITCH Packages for Enterprise Linux $releasever - $basearch - Debug
+baseurl=http://it.ruanli.net:20000/fs/repo/yum/centos-release/7/x86_64
+enabled=1
+gpgcheck=0
+
+[freeswitch-source]
+# Included in freeswitch repo
+name=FreeSWITCH Packages for Enterprise Linux $releasever - $basearch - Source
+baseurl=http://it.ruanli.net:20000/fs/repo/yum/centos-release/7/x86_64
+enabled=1
+gpgcheck=0
