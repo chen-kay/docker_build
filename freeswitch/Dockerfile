@@ -10,33 +10,27 @@ COPY freeswitch-release.repo /etc/yum.repos.d/freeswitch-release.repo
 
 RUN yum-builddep -y freeswitch 
 
-RUN yum install -y yum-plugin-ovl centos-release-scl rpmdevtools git
+RUN yum install -y lsof htop
 
-RUN yum install -y devtoolset-8-gcc*
+WORKDIR /usr/local
 
-RUN scl enable devtoolset-8 'bash'
+COPY freeswitch.tar.gz freeswitch.tar.gz
+RUN tar -zxvf freeswitch.tar.gz
 
-WORKDIR /usr/src
+WORKDIR /usr/local/freeswitch
 
-RUN git clone -b v1.6 https://github.com/GraySkay/freeswitch.git freeswitch
+# gateway-url 为语音控制系统地址 default:11111
+COPY xml_curl.conf.xml conf/autoload_configs/xml_curl.conf.xml
 
-WORKDIR /usr/src/freeswitch
+RUN ln bin/freeswitch /usr/bin/freeswitch
+RUN ln bin/fs_cli /usr/bin/fs_cli
 
-RUN ./bootstrap.sh -j
+# 服务开放端口
+# 5060/udp 5080/udp 5066/tcp 7443/tcp 语音端口
+# 语音端口可在语音控制系统中设置
+EXPOSE 15060/tcp 15060/udp 15080/tcp 15080/udp
+EXPOSE 15066/tcp 17443/tcp
+EXPOSE 18021/tcp
 
-# COPY modules.conf modules.conf
-RUN ./configure
 
-RUN make 
-RUN make install
-# RUN make -j cd-sounds-install
-# RUN make -j cd-moh-install
-RUN ln /usr/local/freeswitch/bin/freeswitch /usr/bin/freeswitch
-RUN ln /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
-
-EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
-EXPOSE 5066/tcp 7443/tcp
-EXPOSE 8021/tcp
-EXPOSE 64535-65535/udp
-
-CMD freeswitch
+CMD ["freeswitch"]
