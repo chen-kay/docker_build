@@ -1,0 +1,7 @@
+<configuration name="xml_curl.conf" description="cURL XML Gateway">
+  <bindings>
+    <binding name="fsconf">
+      <!-- <param name="gateway-url" value="http://127.0.0.1:11111" bindings="dialplan"/> -->
+    </binding>
+  </bindings>
+</configuration>

@@ -1,0 +1,26 @@
+version: "3"
+
+volumes:
+  static:
+  database:
+
+services:
+  fs_bate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fs_bate
+    container_name: fs_bate
+    working_dir: /usr/local/freeswitch
+    volumes:
+      - E:/app/fs/recording:/home/recording
+      - E:/app/fs/log:/usr/local/freeswitch/log
+    ports:
+      - "5060:5060"
+      - "5060:5060/udp"
+      - "5080:5080"
+      - "5080:5080/udp"
+      - "5066:5066"
+      - "7443:7443"
+      - "8021:8021"
+    command: freeswitch
