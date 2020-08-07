@@ -13,8 +13,8 @@ services:
     container_name: fs_bate
     working_dir: /usr/local/freeswitch
     volumes:
-      - E:/app/fs/recording:/home/recording
-      - E:/app/fs/log:/usr/local/freeswitch/log
+      - /home/fs_bate/recording:/home/recording
+      - /home/fs_bate/log:/usr/local/freeswitch/log
     ports:
       - "5060:5060"
       - "5060:5060/udp"
