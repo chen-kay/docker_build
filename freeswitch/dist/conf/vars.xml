@@ -12,6 +12,7 @@
        
        WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING 
   -->
+  <X-PRE-PROCESS cmd="set" data="media_mix_inbound_outbound_codecs=true"/>
   <X-PRE-PROCESS cmd="set" data="default_password=xcvblkgfd+_!@)(#$%^(*"/>
   <!-- Did you change it yet? -->
   <!--

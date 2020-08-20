@@ -49,3 +49,4 @@ RUN ln /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
 EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
 EXPOSE 5066/tcp 7443/tcp
 EXPOSE 8021/tcp
+EXPOSE 64535-65535/udp
