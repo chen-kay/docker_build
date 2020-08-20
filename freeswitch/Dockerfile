@@ -22,8 +22,7 @@ RUN git clone -b v1.6 https://gitee.com/kytop/freeswitch.git
 
 WORKDIR /usr/src/freeswitch
 
-# http://192.168.80.250:20000/
-# http://68.168.130.35:8080/
+# http://192.168.80.250:20000/ Must be change
 # Start building
 COPY build/build/getsounds.sh.in build/getsounds.sh.in
 COPY build/modules.conf modules.conf
