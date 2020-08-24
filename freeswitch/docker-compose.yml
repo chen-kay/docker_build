@@ -23,5 +23,6 @@ services:
       - "5066:5066"
       - "7443:7443"
       - "8021:8021"
-    command: freeswitch
+    restart: always
     network_mode: "host"
+    command: freeswitch
