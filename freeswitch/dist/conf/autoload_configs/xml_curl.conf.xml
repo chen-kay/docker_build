@@ -1,7 +1,7 @@
 <configuration name="xml_curl.conf" description="cURL XML Gateway">
   <bindings>
     <binding name="fsconf">
-      <param name="gateway-url" value="http://192.168.66.111:11005/fs/" bindings="dialplan|dialplan|configuration"/>
+      <param name="gateway-url" value="http://192.168.66.111:11005/fs/" bindings="directory|dialplan|configuration"/>
     </binding>
   </bindings>
 </configuration>
